@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>Add</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-USBPorts.aml</string>
+			</dict>
+		</array>
+		<key>Delete</key>
+		<array>
+			<dict>
+				<key>All</key>
+				<false/>
+				<key>Comment</key>
+				<string>Drop SSDT-8 Table</string>
+				<key>Enabled</key>
+				<true/>
+				<key>OemTableId</key>
+				<data>
+				eGhfY21zZDQ=
+				</data>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				U1NEVA==
+				</data>
+			</dict>
+		</array>
+		<key>Patch</key>
+		<array/>
+		<key>Quirks</key>
+		<dict>
+			<key>FadtEnableReset</key>
+			<false/>
+			<key>NormalizeHeaders</key>
+			<false/>
+			<key>RebaseRegions</key>
+			<false/>
+			<key>ResetHwSig</key>
+			<false/>
+			<key>ResetLogoStatus</key>
+			<false/>
+			<key>SyncTableIds</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>
