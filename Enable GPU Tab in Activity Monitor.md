@@ -27,8 +27,8 @@ There are two ways
 
 - Inject device-id 0x3E9B
 
-# Tracing iGPU Usage in GPU Tab and GPU History Window.
+# iGPU utilization in GPU Tab and GPU History Window.
 
-When you opt to use the desktop Framebuffer, tracking will work. However, with empty Framebuffer + enable-metal property, system has to go through the sleep/wake cycle once in order for iGPU tracing to work in Activity Monitor.
+When you opt to use the desktop Framebuffer it will just work. However, with the empty Framebuffer + enable-metal property, system has to go through the sleep/wake cycle once in order to see the actual iGPU usage in Activity Monitor.
 
 <img width="1321" alt="qqq" src="https://user-images.githubusercontent.com/97265013/215239222-c2882fd5-3ecb-40cc-a994-8958a4bf4398.png">
