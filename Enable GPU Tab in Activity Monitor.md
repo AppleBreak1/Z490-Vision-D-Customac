@@ -1,4 +1,4 @@
-# Enabling "GPU Tab" in Activity Monitor
+# Enabling GPU Tab in Activity Monitor
 
 Run below command in terminal
 
