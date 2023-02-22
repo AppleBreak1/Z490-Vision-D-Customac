@@ -1,7 +1,7 @@
 # Customizing
 
-* [**Enable GPU Tab in Activity Monitor**](#Enabling-GPU-Tab-in-Activity-Monitor)
-* [**Show Both iGPU and dGPU in GPU Tab and GPU History Window**](#Show-both-iGPU-and-dGPU-in-GPU-tab-and-GPU-History-Window)
+* [**Enable GPU Tab in Activity Monitor**](#Enable-GPU-Tab-in-Activity-Monitor)
+* [**Show Both iGPU and dGPU in GPU Tab and GPU History Window**](#Show-Both-iGPU-and-dGPU-in-GPU-tab-and-GPU-History-Window)
 * [**Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window**](#Fix-iGPU-Shown-as-"Intel-KBL-Unknown"-in-GPU-History-Window)
 * [**iGPU Utilization in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
 * [**System Profiler**](#System-Profiler)
@@ -27,7 +27,7 @@ defaults write com.apple.ActivityMonitor ShowGPUTab -bool false
 
 Credit: [notjosh](https://github.com/notjosh) for the command.
 
-# Show both iGPU and dGPU in GPU tab and GPU History Window
+# Show Both iGPU and dGPU in GPU tab and GPU History Window
 
 There are two ways
 
