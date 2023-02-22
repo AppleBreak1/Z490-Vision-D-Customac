@@ -48,7 +48,7 @@ When you opt to use the desktop framebuffer it will just work. However, with the
 
   - Change SATA and NVMe Controllers Shown as Generic Controller in System Profiler
 
-    - Find device path of SATA AHCI controller and NVME SSD controller then inject below propeties.
+    - Find device path of SATA AHCI controller and NVME SSD controller then inject below properties.
   
       - SATA AHCI Controller device path -> name |String| pci8086,a182
       - NVME SSD Controller device path -> subsystem-id -> |Data| 04A80000 or 06A80000
