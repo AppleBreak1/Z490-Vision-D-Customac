@@ -6,7 +6,7 @@
 * [**iGPU Utilization in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
 * [**System Profiler**](#System-Profiler)
   - SATA and NVMe SSD Controler shown as Generic Controller
-  - Intel I219 Ethernet Model name change.
+  - Intel I219 Ethernet Model name change
 ___
 
 # Enable GPU Tab in Activity Monitor
