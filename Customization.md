@@ -50,7 +50,7 @@ When you opt to use the desktop framebuffer it will just work. However, with the
 
     - Find device path of SATA AHCI controller and NVME SSD controller of a device then inject below values
   
-      - SATA AHCI Controller device path -> name |string| pci8086,a182
+      - SATA AHCI Controller device path -> name |String| pci8086,a182
       - NVME SSD Controller device path -> subsystem-id -> |Data| 04A80000 or 06A80000
  
         <img width="1662" alt="Screenshot 2023-02-22 at 12 05 20 PM" src="https://user-images.githubusercontent.com/97265013/220759281-235757ef-1b0e-4b8f-baad-ed3e4ad2dbf0.png">
