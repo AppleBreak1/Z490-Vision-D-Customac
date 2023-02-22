@@ -38,7 +38,7 @@ There are two ways
 
 - Inject device-id 0x3E9B
 
-# iGPU utilization in GPU Tab and GPU History Window
+# iGPU Utilization in GPU Tab and GPU History Window
 
 When you opt to use the desktop framebuffer it will just work. However, with the empty framebuffer + "enable-metal" property, system has to go through the sleep/wake cycle once in order to see the actual iGPU usage in Activity Monitor.
 
