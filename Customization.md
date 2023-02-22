@@ -2,7 +2,7 @@
 
 * [**Enable GPU Tab in Activity Monitor**](#Enable-GPU-Tab-in-Activity-Monitor)
 * [**Show Both iGPU and dGPU in GPU Tab and GPU History Window**](#Show-Both-iGPU-and-dGPU-in-GPU-tab-and-GPU-History-Window)
-* [**Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window**](#Fix-iGPU-Shown-as-"Intel-KBL-Unknown"-in-GPU-History-Window)
+* [**Fix iGPU Shown as Intel KBL Unknown in GPU History Window**](#Fix-iGPU-Shown-as-Intel-KBL-Unknown-in-GPU-History-Window)
 * [**iGPU Utilization in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
 * [**System Profiler**](#System-Profiler)
   - SATA and NVMe SSD Controler shown as Generic Controller
@@ -34,7 +34,7 @@ There are two ways
 - Use desktop type framebuffer such as 0x3E9B0007  (Expect longer boot times and if dGPU is the primary display controller, system might become unstable with more than one display connected)
 - Use empty framebuffer such as 0x9BC50003 with either enable-metal property or igfxmetal=1 boot flag.  
 
-# Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window
+# Fix iGPU Shown as Intel KBL Unknown in GPU History Window
 
 - Inject device-id 0x3E9B
 
