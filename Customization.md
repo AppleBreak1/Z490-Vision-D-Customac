@@ -2,7 +2,7 @@
 
 * [**Enable GPU Tab in Activity Monitor**](#Enable-GPU-Tab-in-Activity-Monitor)
 * [**Show Both iGPU and dGPU in GPU Tab and GPU History Window**](#Show-Both-iGPU-and-dGPU-in-GPU-tab-and-GPU-History-Window)
-* [**Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window**](#Fix-iGPU-Shown-as-"Intel KBL Unknown"-in-GPU-History-Window)
+* [**Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window**](#Fix-iGPU-Shown-as-"Intel-KBL-Unknown"-in-GPU-History-Window)
 * [**iGPU Utilization in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
 * [**System Profiler**](#System-Profiler)
   - SATA and NVMe SSD Controler shown as Generic Controller
