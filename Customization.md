@@ -57,9 +57,10 @@ When you opt to use the desktop framebuffer it will just work. However, with the
 ___
   - Change Intel I219 Ethernet name in System Profiler
   
-    - When IntelMausi.kext is used for I219 ethernet, IntelMausi(exec) in /Contents/MacOS folder needs to be modfied with hex editor to change how it's shown in System Profiler.
+    - When IntelMausi.kext is used for I219 ethernet, IntelMausi binary in /Contents/MacOS folder needs to be modfied with hex editor to change how it's shown in System Profiler. 
       
          <img width="1676" alt="Screenshot 2023-02-22 at 1 28 50 PM" src="https://user-images.githubusercontent.com/97265013/220765537-61d2f18f-7b04-4ad8-955f-f2f6e21ff292.png">
-
+     
+    - Alternatively, you might as well build the kext from its source after changing the model name.
       
       
