@@ -296,7 +296,9 @@ macOS Ventura
     
     ** You may use a similar method to create service to run the script with keyboard shortcut when waking from sleep. 
     
-- After further investigation, issue of Apple Magic Keyboard/Trackpad/Mouse not working on startup or sleep/wake cycle seems to have been caused by AppleEthernetE1000 DriverKit for I225 ethernet.  Adding Boot-arg e1000=0 to either disable DEXT for I225 or enable I225 with AppleIntelI210Ethernet.kext have resolved the issue.
+- After further investigation, issue of Apple Magic Keyboard/Trackpad/Mouse not working on startup or sleep/wake cycle seems to have been caused by AppleEthernetE1000 DriverKit for I225 ethernet.  Adding Boot-arg e1000=0 to either disable DEXT for I225 or enable I225 with AppleIntelI210Ethernet.kext have resolved the issue. 
+       
+    - Update: Ventura 13.3 Beta (22E5219e) seems to have reolved the issue. No longer having this problem while using DEXT for Intel I225 ethernet.
 
     
 # Geekbench 5 & Cinebench R23
