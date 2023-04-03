@@ -287,7 +287,9 @@ macOS Monterey
 
 macOS Ventura
 
-- As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with USB mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)   
+- As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with USB mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)  
+
+   [Workaround](https://github.com/AppleBreak1/Z490-Vision-D-Customac/commit/d33acbdda25619aba76856b41a931fc0349ede8e)
    
    Update: This issue has been resolved in Ventura 13.3
 
