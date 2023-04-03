@@ -196,6 +196,8 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
         - Set DisableIoMapper to false
         - Drop OEM DMAR Table in config.plist
         - Inject modified DMAR Table(Reserved Memory Regions removed) in Config.plist
+        - IOPCIFamily.kext patch is required for WiFi and I219 ethernet to function (Only for Ventura 13.3 or higher - See the macOS Ventura note section)
+
 
 - USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9) 
         
@@ -287,23 +289,9 @@ macOS Ventura
 
 - As of Ventura 13.1, 9 out of 10 times my bluetooth Apple Magic Keyboard and Trackpad do not respond on startup unless bluetooth or the devices itself has been toggled off and on again with USB mouse. This also seems to be a problem with real Macs as well, as decribed [here](https://discussions.apple.com/thread/254330209?answerId=258137456022#258137456022)   
    
-     For a workaround, I am temporary using a tool called [Blueutil](https://github.com/toy/blueutil) to automatically toggle off/on bluetooth at login with a help of Automator.
-     
-    - Build blueutil from the source and install(copy) it to /usr/local/bin folder 
-    - Create Automator to run shell script below
-        
-      ```shell
-      export PATH=/usr/local/bin:$PATH
-      blueutil -p0 && blueutil -p1
-      ```
-    - Save the Automator and name it (BluetoothToggle)
-    - Add the Application(BluetoothToggle) under "Login Items" to run at login.
-    
-    ** You may use a similar method to create service to run the script with keyboard shortcut when waking from sleep. 
-    
-     -Update1: After further investigation, issue of Apple Magic Keyboard/Trackpad/Mouse not working on startup or sleep/wake cycle seems to be linked to AppleEthernetE1000 DriverKit for I225 ethernet.  Adding Boot-arg e1000=0 to either disable DEXT for I225 or enable I225 with AppleIntelI210Ethernet.kext have resolved the issue. 
-       
-     -Update2: On Ventura 13.3 Beta (22E5219e), No longer having this problem while using DEXT for Intel I225 ethernet.
+   Update: This issue has been resolved in Ventura 13.3
+
+- As of Ventura 13.3, a WiFi and the Intel I219 Ethernet no longer work if AppleVTD is enabled. One must apply IOPCIFamily.kext [patch](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.316533/post-2365797) to resolve the behavior. Thanks to [CaseySJ](https://github.com/CaseySJ) for discovering the patch.
 
     
 # Geekbench 5 & Cinebench R23
