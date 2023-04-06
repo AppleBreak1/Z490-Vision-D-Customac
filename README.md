@@ -293,7 +293,7 @@ macOS Ventura
    
    Update: This issue has been resolved in Ventura 13.3
 
-- As of Ventura 13.3, a WiFi and the Intel I219 Ethernet no longer work if AppleVTD is enabled. One must apply AppleVTD [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) to resolve the behavior. Thanks to [CaseySJ](https://github.com/CaseySJ) for discovering the patch.
+- As of Ventura 13.3, a WiFi and the Intel I219 Ethernet no longer work if AppleVTD is enabled. One must apply the [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) discovered by [CaseySJ](https://github.com/CaseySJ) to resolve such behavior.
 
    Update: This [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) is incorporated into OpenCore 0.9.2 as a [DisableIoMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440) kernel quirk.
     
