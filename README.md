@@ -196,7 +196,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
         - Set DisableIoMapper to false
         - Drop OEM DMAR Table in config.plist
         - Inject modified DMAR Table(Reserved Memory Regions removed) in Config.plist
-        - AppleVTD patch is required for WiFi and I219 ethernet to function (Only for Ventura 13.3 or higher - See the macOS Ventura note section)
+        - Set DisableIoMapperMapping -> Yes (Required for Ventura 13.3 or higher - See the macOS Ventura note section)
 
 
 - USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9) 
@@ -295,6 +295,7 @@ macOS Ventura
 
 - As of Ventura 13.3, a WiFi and the Intel I219 Ethernet no longer work if AppleVTD is enabled. One must apply AppleVTD [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) to resolve the behavior. Thanks to [CaseySJ](https://github.com/CaseySJ) for discovering the patch.
 
+   Update: This [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) is incorporated into OpenCore 0.9.2 as a [DisableIoMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440) kernel quirk.
     
 # Geekbench 5 & Cinebench R23
 
