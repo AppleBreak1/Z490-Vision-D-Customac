@@ -2,4 +2,4 @@ OC 0.9.1 - Included [CaseySJ's patch](https://github.com/CaseySJ/Ventura-AppleVT
 
 OC 0.9.2 - Enabled DisableIoMapperMapping kernel Quirk and removed the patch to fix WiFi/Etherent.
 
-OC 0.9.2 - macOS Sonoma ready
+OC 0.9.3 - macOS Sonoma ready
