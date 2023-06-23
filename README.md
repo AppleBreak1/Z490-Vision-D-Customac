@@ -54,18 +54,19 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
     
     - Spoof to i7-7700K CPUID (0x0906E9) for Sierra 10.12.6 
     
-    - iGPU DeviceProperty -> AAPL,ig-platform-id -> 03001259 (For headless mode)  
-                                                 -> 00001259 (To drive a display)     
+    - iGPU DeviceProperty -> AAPL,ig-platform-id -> <03001259> (For headless mode)  
+                                                 -> <00001259> (To drive a display)     
                                             
                           -> rps-control instead of igfxfw       
     
-    - Boot-args -> -disablegfxfirmware (For Sierra only. This prevents firmware load)
+    - Boot-args -> -disablegfxfirmware (For Sierra only. This prevents firmware load attempt)
     
  Note 3: For Mojave
  
     - SMBIOS iMac19,1
     
-    - iGPU ig-Platform-ID  0300983E for computation only or 07009B3E to drive a display
+    - iGPU ig-Platform-ID -> <0300983E> (Headless mode)
+                          -> <07009B3E> (To drive a display)
     
     - rps-control instead of igfxfw property
  
@@ -134,9 +135,9 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 # SSDT
 
-- SSDT-PLUG.aml (Injects Plugin Type 1; No longer required beginning with Monterey 12.3) 
+- SSDT-PLUG.aml (Injects plugin type 1; No longer required beginning with Monterey 12.3) 
 
-- SSDT-EC-USBX.aml (Injects Fake Embedded Controller - High Power Charging for iPhone, iPad, etc)
+- SSDT-EC-USBX.aml (Injects fake Embedded Controller device - High Power Charging for iPhone, iPad, etc)
 
 - SSDT-DMAR.aml (Modifed to remove Reserved Memory Regions in OEM DMAR Table is required to load AppleVTD and to fix issues with ethernet/WiFi when VT-d is enabled. It is important to drop OEM DMAR table in ACPI section of the OpenCore config.plist)
 
@@ -158,7 +159,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - SSDT-LPCB.aml (injects DMAC, FWHD, and ARTC devices under LPCB) Note that these are mostly for cosmetic thus optional.
 
-- SSDT-USBW.aml (One hit key wake from sleep; associated with USBWakeFixup.kext)
+- SSDT-USBW.aml (Single-key wake from sleep; associated with USBWakeFixup.kext)
 
 # Kexts
 
@@ -184,22 +185,21 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - FakePCIID.kext (Required for FakePCIID_Intel_HDMI_Audio.kext and FakePCIID_Intel_I225-V.kext) 
 
-- FakePCIID_Intel_HDMI_Audio.kext (Required for Onboard Audio to work in Sierra ~ Mojave)
+- FakePCIID_Intel_HDMI_Audio.kext (Required for onboard Audio to work in Sierra ~ Mojave)
 
 - FakePCIID_Intel_I225-V.kext (Required for I225 Ethernet in macOS Catalina along with fake device-id injection) 
 
-   Note: In macOS Big Sur or higher, AppleEthernetE1000 driver kit natively attaches to i225 ethernet. Thus, FakePCIID_Intel_I225-V.kext is no longer needed. However, if the ethernet port is occupied without having AppleVTD enabled with modifed DMAR table, the system will experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD.
+   Note: In macOS Big Sur or higher, AppleEthernetE1000 driver kit natively attaches to i225 ethernet. Thus, FakePCIID_Intel_I225-V.kext is no longer needed. However, if the ethernet port is occupied without having AppleVTD enabled with modifed DMAR table, the system will experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD with the following.
     
     Enabling AppleVTD
     
         - Enable VT-d in BIOS, 
-        - Set DisableIoMapper to false
+        - Kernel -> Quirks -> DisableIoMapper -> False
+        - Kernel -> Quirks -> DisableIoMapperMapping -> True (Required for Ventura 13.3+; see the macOS Ventura note section)
         - Drop OEM DMAR Table in config.plist
         - Inject modified DMAR Table(Reserved Memory Regions removed) in Config.plist
-        - Set DisableIoMapperMapping -> Yes (Required for Ventura 13.3 or higher - See the macOS Ventura note section)
 
-
-- USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey or Higher; thus set minkernel to 19.0 and max kernel to 20.9.9) 
+- USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey+; thus set minkernel to 19.0 and max kernel to 20.9.9) 
         
    Note: One may wish to continue using USBWakeFixup.kext on Monterey or higer. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz.
    
@@ -235,16 +235,16 @@ macOS Sierra 10.12.6
 
 - Change SMBIOS to iMac18,3 (Required)
 - Spoof to Kaby Lake CPUIDs (Required)
-- Inject ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
+- Inject ig-platform-id: <03001259> device-id: <12590000> (Necessary for iGPU acceleration) 
 - Inject rps-control property instead of igfxfw (Necessary for iGPU acceleration and improvement) 
-- Add boot-arg -disablegfxfirmware (To prevent firmware load. Necessary for iGPU acceleration) 
+- Add boot-arg -disablegfxfirmware (To prevent firmware load attempt. Necessary for iGPU acceleration) 
 - FakePCIID_Intel_HDMI_Audio.kext for onboard audio
 
 macOS High Sierra 10.13.6
 
 - Change SMBIOS to iMac18,3 (Required)
 - Spoof to Kaby Lake or Coffee Lake CPUIDs (Required)
-- Inject AAPL,ig-platform-id: 03001259 device-id: 12590000 (Necessary for iGPU acceleration) 
+- Inject AAPL,ig-platform-id: <03001259> device-id: <12590000> (Necessary for iGPU acceleration) 
 - Inject rps-control property instead of igfxfw (Necessary for iGPU acceleration and improvement) 
 - FakePCIID_Intel_HDMI_Audio.kext for onboard audio
 
@@ -252,7 +252,7 @@ macOS Mojave
 
 - SMBIOS iMac19,1
 - Spoof to Coffee Lake CPUIDs 
-- Inject AAPL,ig-platform-id: 0300983E device-id: 9B3E0000 (Necessary for iGPU acceleration) 
+- Inject AAPL,ig-platform-id: <0300983E> device-id: <9B3E0000> (Necessary for iGPU acceleration) 
 - Inject rps-control property instead of igfxfw (Necessary for iGPU acceleration and improvement) 
 - FakePCIID_Intel_HDMI_Audio.kext for onboard audio 
 - Added NVMeFix.kext
@@ -260,9 +260,9 @@ macOS Mojave
 
 macOS Catalina
 
-- SMBIOS iMac19,1 or iMac20,2 (Requires Catalina 10.15.6 or higher)
-- May configure SecureBootModel -> j185f if SMBIOS is set to iMac20,2 (Requires Catalina 10.15.6 or higher) 
-- Inject AAPL,ig-platform-id: 0300C59B device-id: 9B3E0000 (May not be necessary if WhatEverGreen.Kext is used)
+- SMBIOS iMac19,1 or may use iMac20,2 for Catalina 10.15.6+
+- May set SecureBootModel to "[j185f](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#what-is-apple-secure-boot)" if on SMBIOS iMac20,2 (Requires Catalina 10.15.6+) 
+- Inject AAPL,ig-platform-id: <0300C59B> device-id: <9B3E0000> (May not be necessary if WhatEverGreen.Kext is used)
 - Inject igfxfw property (Necessary for iGPU performance improvement)
 - Added USBWakeFixup.kext, SSDT-USBW.aml 
 - I225 Ethernet requires FakePCIID_Intel_I225-V.kext + Fake device-id injection 
@@ -272,7 +272,7 @@ macOS Big Sur
 - SecureBootModel -> [j185f](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#what-is-apple-secure-boot)
 - UEFI -> APFS -> MinDate and MinVersion -> 0
 - Injecting AAPL,slot-name for iGPU or dGPU breaks certain encoding functions(H264) in FCPX
-- Intel I225 Ethernet is natively supported in later version of Big Sur (AppleVTD is required for this to work and flashing EEPROM with [custom firmware](https://www.insanelymac.com/forum/topic/348493-discussion-intel-i225-v-on-macos-monterey/?do=findComment&comment=2779420) may be necessary for some folks) 
+- Intel I225 Ethernet is natively supported in Big Sur 11.3+ (AppleVTD is required for this to work and flashing EEPROM with [custom firmware](https://www.insanelymac.com/forum/topic/348493-discussion-intel-i225-v-on-macos-monterey/?do=findComment&comment=2779420) may be necessary for some folks) 
 
 macOS Monterey 
 
@@ -280,7 +280,7 @@ macOS Monterey
 
     - Two possible workarounds
     
-         - Set memory clock speed below 2933 MHz
+         - Set memory clock speed below 2933 MHz (This may also resolve "Disk not ejected properly" pop-up)
          - [Bluesnooze](https://github.com/odlp/bluesnooze)
          
 - Beginning with Monterey 12.3, SSDT-PLUG.aml is no longer required
