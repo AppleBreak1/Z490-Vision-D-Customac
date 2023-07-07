@@ -72,7 +72,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
  
 # Not Working
 
-- DRM in Safari and TV+ (For workaround, force [AMD Enc/Dec](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.Chart.md))
+- DRM in Safari and TV+ (For workaround, force [AMD DRM](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.Chart.md))
 - I225 Ethernet in macOS Mojave and below (Support for I225 Ethernet was first introduced in macOS Catalina)
 
 
