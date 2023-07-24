@@ -122,7 +122,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - Kernel -> Quirks -> CustomSMBIOSGuid -> Yes
 - Kernel -> Quirks -> DisableIOMapper -> No (Requirement for loading AppleVTD)
-- Kernel -> Quirks -> [DisableIOMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440)(OCLP 0.9.2+) -> Yes, if having issues with WiFi/Ethernet in Ventura 13.3+)
+- Kernel -> Quirks -> [DisableIOMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440) -> Yes, if having issues with WiFi/Ethernet with AppleVTD enabled in Ventura 13.3+)
 
 
 - Misc -> Security -> ScanPolicy -> 0 (Set it to 2,687,747 if you wish to hide unnecessary entries)
