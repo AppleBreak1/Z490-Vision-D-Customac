@@ -80,7 +80,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 **Run Load Optimized Defaults**
 
-- VT-d -> Enabled
+- VT-d -> Enabled (Requirement for loading AppleVTD)
 
 - CSM Support -> Disabled
 
@@ -107,7 +107,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 # OpenCore Config.plist
 
-- ACPI -> Delete -> Drop OEM DMAR Table
+- ACPI -> Delete -> Drop OEM DMAR Table (Requirement for resolving issues with WiFi/Ethernet when enabling AppleVTD for motherboards that have Reserved Memory Regions in their DMAR table)
 
 - Device Properties
 
@@ -121,6 +121,8 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 
 - Kernel -> Quirks -> CustomSMBIOSGuid -> Yes
+- Kernel -> Quirks -> DisableIOMapper -> No (Requirement for loading AppleVTD)
+- Kernel -> Quirks -> [DisableIOMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440)(OCLP 0.9.2+) -> Yes, if having issues with WiFi/Ethernet in Ventura 13.3+)
 
 
 - Misc -> Security -> ScanPolicy -> 0 (Set it to 2,687,747 if you wish to hide unnecessary entries)
@@ -139,7 +141,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - SSDT-EC-USBX.aml (Injects fake Embedded Controller device - High Power Charging for iPhone, iPad, etc)
 
-- SSDT-DMAR.aml (Modifed to remove Reserved Memory Regions in OEM DMAR Table is required to load AppleVTD and to fix issues with ethernet/WiFi when VT-d is enabled. It is important to drop OEM DMAR table in ACPI section of the OpenCore config.plist)
+- SSDT-DMAR.aml (Modifed to remove Reserved Memory Regions from OEM DMAR Table. This is required to fix issues with WiFi/ethernet when enabling AppleVTD. Don't forget to drop OEM DMAR table in ACPI section of the OpenCore config.plist first)
 
 - SSDT-MCHCSBUS-DTGP.aml (Injects MCHC, SBUS, and DTGP method)
 
