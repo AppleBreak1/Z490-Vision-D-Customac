@@ -39,7 +39,7 @@ Wifi/BT Card: Fenvi FV-T919
      </details>  
 
      
-- Working Mac OS: Sierra ~ macOS Ventura
+- Working Mac OS: Sierra ~ macOS Sonoma
 
 Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
 
@@ -203,7 +203,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey+; thus set minkernel to 19.0 and max kernel to 20.9.9) 
         
-   Note: One may wish to continue using USBWakeFixup.kext on Monterey or higer. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz.
+   Note: One may wish to continue using USBWakeFixup.kext in macOS Monterey or newer. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz. 
    
 # Drivers
 
