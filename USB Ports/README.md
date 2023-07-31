@@ -22,10 +22,8 @@ Below example is based on F5 BIOS
 
 Config.plist
 
-- ACPI -> Delete -> Drop OEM USB Table (SSDT-8.aml)
+- ACPI -> Delete -> Drop the OEM table that defines USB ports (SSDT-8.aml for F5 BIOS)
 - ACPI -> Add - > SSDT-USBPorts.aml (Renamed from SSDT-8.aml after the modification)
-
-
 
 
 The advantage of using this USB port mapping method.
