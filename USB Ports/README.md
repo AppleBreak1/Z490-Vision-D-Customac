@@ -2,13 +2,13 @@
 
 This method modifies the OEM table where the USB Ports are declared(SSDT-8.aml for F5 BIOS). Modification includes limiting 11 ports using its GUPC method and enabling 15 ports using its TUPC method in Mac OS only.
 
-Before proceeding with this method, you'll first need to have discovered which ports to enable and disable to [limit the USB port counts to 15 per controller](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit). You may use scripts like [USBMap](https://github.com/corpnewt/USBMap) or discover the ports [manually](https://dortania.github.io/OpenCore-Post-Install/usb/manual/manual.html#usb-mapping-the-manual-way). 
+Before proceeding with this method, you'll first need to have discovered which ports to enable and to disable for [limiting the USB port counts to 15 per controller](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit). You may use scripts like [USBMap](https://github.com/corpnewt/USBMap) or discover the ports [manually](https://dortania.github.io/OpenCore-Post-Install/usb/manual/manual.html#usb-mapping-the-manual-way). 
 
 Note that different BIOS versions may have different names for the table where the USB ports are defined.
 
 # Requirments
 
-- Modify the OEM table defining USB ports(SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
+- Modify the OEM table that defines USB ports(SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
 - Inject the modifed USB table. (Preferably renamed after the modification to make it more easily identifiable)
 - Drop the OEM table defining USB ports(SSDT-8.aml for F5 BIOS) in ACPI section of the config.plist
 - Remove the previously configured USB port mapping method.
