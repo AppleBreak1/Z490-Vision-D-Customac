@@ -1,8 +1,21 @@
 # Important Notes
 
-This method modifies OEM USB table SSDT-8.aml(where the USB Ports are declared). Modification includes limiting 11 ports using GUPC method and enabling 15 ports using TUPC method in Mac OS only. To make it work, first remove the previously configured USB port mapping method, then drop OEM SSDT-8 table in ACPI section of the config.plist and add patched SSDT-8.aml which is saved as SSDT-USBPorts.aml after the modification. This USB port mapping won't work unless  the OEM ACPI table responsible for USB ports is dropped.
+This method modifies the OEM table where the USB Ports are declared(SSDT-8.aml for F5 BIOS). Modification includes limiting 11 ports using its GUPC method and enabling 15 ports using its TUPC method in Mac OS only.
 
-Below example is based on F5 BIOS
+Before proceeding with this method, you'll first need to have discovered which ports to enable and disable to limit the USB port counts to 15. You may use scripts like [USBMap](https://github.com/corpnewt/USBMap) or discover the ports [manually](https://dortania.github.io/OpenCore-Post-Install/usb/manual/manual.html#usb-mapping-the-manual-way). 
+
+Note that different BIOS versions may have different names for the table where the USB ports are defined.
+
+# Requirments
+
+- Modify the OEM table defining USB ports(SSDT-8.aml for F5 BIOS) to [limit the USB ports to 15 per controller](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit).
+- Inject the modifed USB table. (Preferably renamed after the modification to make it more easily identifiable)
+- Drop the OEM table defining USB ports(SSDT-8.aml for F5 BIOS) in ACPI section of the config.plist
+- Remove the previously configured USB port mapping method.
+  
+___
+
+Below example is based on F5 BIOS 
 
 <img width="1613" alt="Screenshot 2023-01-11 at 11 32 53 AM" src="https://user-images.githubusercontent.com/97265013/211901264-0c900a68-e956-4a99-b524-7dbcc30ae79b.png">
 
@@ -10,7 +23,7 @@ Below example is based on F5 BIOS
 Config.plist
 
 - ACPI -> Delete -> Drop OEM USB Table (SSDT-8.aml)
-- ACPI -> Add - > SSDT-USBPorts.aml
+- ACPI -> Add - > SSDT-USBPorts.aml (Renamed from SSDT-8.aml after the modification)
 
 
 
