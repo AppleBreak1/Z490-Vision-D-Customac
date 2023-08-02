@@ -73,8 +73,6 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 # Not Working
 
 - DRM in Safari and TV+ (For workaround, force [AMD DRM](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.Chart.md))
-- I225 Ethernet in macOS Mojave and below (Support for I225 Ethernet was first introduced in macOS Catalina)
-
 
 # BIOS Settings
 
@@ -189,9 +187,9 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - FakePCIID_Intel_HDMI_Audio.kext (Required for onboard Audio to work in Sierra ~ Mojave)
 
-- FakePCIID_Intel_I225-V.kext (Required for I225 Ethernet in macOS Catalina along with fake device-id injection) 
+- FakePCIID_Intel_I225-V.kext (Nessary for native I225 Ethernet driver in macOS Catalina along with fake device-id injection) 
 
-   Note: In macOS Big Sur+, AppleEthernetE1000 driver kit natively attaches to i225 ethernet. Thus, FakePCIID_Intel_I225-V.kext is no longer needed. However, if the ethernet port is occupied without having AppleVTD enabled with modifed DMAR table, the system will experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD with the following.
+   Note: In macOS Big Sur+, AppleEthernetE1000 driver kit natively attaches to i225 ethernet. Thus, FakePCIID_Intel_I225-V.kext is no longer needed for native driver. However, if the ethernet port is occupied without having AppleVTD enabled with modifed DMAR table, the system will experience freeze, crash, and etc. To avoid having these issues, we need to enable AppleVTD with the following.
     
     Enabling AppleVTD
     
@@ -203,7 +201,16 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - USBWakeFixup.kext (Works with SSDT-USBW. Causes Bluetooth issue in Monterey+; thus set minkernel to 19.0 and max kernel to 20.9.9) 
         
-   Note: One may wish to continue using USBWakeFixup.kext in macOS Monterey+. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz. 
+   Note: One may wish to continue using USBWakeFixup.kext in macOS Monterey+. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz.
+
+- [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) (Alternative ethernet kext for IGC compliant devices, namely, Intel I225 and I226; tested to work in macOS Sierra+)
+
+   Note: Injecting this kext requires disabling native AppleEthernetE1000 dext driver with the following boot-args.
+    
+    - Big Sur ~ Monterey 12.2.1: dk.e1000=0
+    - Monterey 12.3 or newer: e1000=0 
+
+     Support for Intel I225 Ethernet was first introduced in macOS Catalina. However, with this kext, we can use I225 Ethernet even in older macOS like Sierra. Also, if the I225 Ethernet is the only reason for enabling AppleVTD, using AppleIGC.kext will give less headaches down the road.
    
 # Drivers
 
@@ -259,7 +266,6 @@ macOS Mojave
 - FakePCIID_Intel_HDMI_Audio.kext for onboard audio 
 - Added NVMeFix.kext
 
-
 macOS Catalina
 
 - SMBIOS iMac19,1 or may use iMac20,2 for Catalina 10.15.6+
@@ -267,7 +273,7 @@ macOS Catalina
 - Inject AAPL,ig-platform-id: <0300C59B> device-id: <9B3E0000> (May not be necessary if WhatEverGreen.Kext is used)
 - Inject igfxfw property (Necessary for iGPU performance improvement)
 - Added USBWakeFixup.kext, SSDT-USBW.aml 
-- I225 Ethernet requires FakePCIID_Intel_I225-V.kext + Fake device-id injection 
+- Intel I225 Ethernet requires FakePCIID_Intel_I225-V.kext + Fake device-id injection to use native ethernet driver. 
 
 macOS Big Sur
 
