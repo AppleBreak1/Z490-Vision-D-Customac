@@ -203,7 +203,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
         
    Note: One may wish to continue using USBWakeFixup.kext in macOS Monterey+. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz.
 
-- [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) (Alternative ethernet kext for IGC compliant devices, namely, Intel I225 and I226; tested to work in macOS Sierra+)
+- [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) (Alternative ethernet kext for Intel I225 and I226; tested to work in macOS Sierra+)
 
    Note: Injecting this kext requires disabling native AppleEthernetE1000 dext driver with the following boot-args.
     
