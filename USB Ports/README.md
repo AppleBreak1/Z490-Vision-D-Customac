@@ -6,7 +6,7 @@ Before proceeding with this method, you'll first need to have discovered which p
 
 Note that different BIOS versions may have different names for the table where the USB ports are defined.
 
-# Requirments
+# Requirements
 
 - Modify the OEM table that defines USB ports(SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
 - Inject the modifed USB table. (Preferably renamed after the modification to make it more easily identifiable)
