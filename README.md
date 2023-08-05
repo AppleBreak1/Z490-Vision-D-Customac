@@ -280,7 +280,7 @@ macOS Big Sur
 - SecureBootModel -> [j185f](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#what-is-apple-secure-boot)
 - UEFI -> APFS -> MinDate and MinVersion -> 0
 - Injecting AAPL,slot-name for iGPU or dGPU breaks certain encoding functions(H264) in FCPX
-- Intel I225 Ethernet is natively supported in Big Sur 11.3+ (AppleVTD is required for this to work and flashing EEPROM with [custom firmware](https://www.insanelymac.com/forum/topic/348493-discussion-intel-i225-v-on-macos-monterey/?do=findComment&comment=2779420) may be necessary for some folks) 
+- Intel I225 Ethernet is natively supported in Big Sur 11.3+ (Enabling AppleVTD with modified DMAR table should be enough to get I225-V working. However, for some I225V versions, updating EEPROM register with [I225Mod](https://www.insanelymac.com/forum/topic/348493-discussion-intel-i225-v-on-macos-monterey/?do=findComment&comment=2779420) may be necessary) 
 
 macOS Monterey 
 
