@@ -210,7 +210,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
     - Big Sur ~ Monterey 12.2.1: dk.e1000=0
     - Monterey 12.3 or newer: e1000=0 
 
-     Support for Intel I225 Ethernet was first introduced in macOS Catalina. However, with this kext, we can use I225 Ethernet even in older macOS like Sierra. Also, if the I225 Ethernet is the only reason for enabling AppleVTD, using AppleIGC.kext will give less headaches down the road.
+     Support for Intel I225 Ethernet was first introduced in macOS Catalina. However, with this kext, we can use I225 Ethernet even in older macOS like Sierra. Also, if the I225 Ethernet is the only reason for enabling AppleVTD which have been problematic, using AppleIGC.kext that does not require AppleVTD will give less headaches down the road 
    
 # Drivers
 
