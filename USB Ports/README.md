@@ -46,7 +46,8 @@ For USB port connector types please refer to [Dortania's USB Mapping Guide](http
    
 # Mapped Ports
 
-Ports: HS03, HS04, HS05, HS06, HS07, HS08, HS09, HS10, HS11, HS12, SS03, SS04, SS05, SS06, SS07 
+Enabled Ports(15): HS03, HS04, HS05, HS06, HS07, HS08, HS09, HS10, HS11, HS12, SS03, SS04, SS05, SS06, SS07 
+Disabled Ports(11): HS01, HS02, HS13, HS14, SS01, SS02, SS08, SS09, SS10, USR1, USR2
 
 
 
