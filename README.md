@@ -304,6 +304,16 @@ macOS Ventura
 - As of Ventura 13.3, a WiFi and the Intel I219 Ethernet no longer work if AppleVTD is enabled. One must apply the [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) discovered by [CaseySJ](https://github.com/CaseySJ) to resolve such behavior.
 
    Update: This [patch](https://github.com/CaseySJ/Ventura-AppleVTD-Patch) is incorporated into OpenCore 0.9.2 as a [DisableIoMapperMapping](https://github.com/acidanthera/OpenCorePkg/pull/440) kernel quirk.
+
+macOS Sonoma
+
+- Apple removed support for IO80211FamilyLegacy stack which is reponsible for supporting many wireless cards used in Macs that were dropped in macOS Sonoma as [noted](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1076) by the OCLP developers. This also impacts Fenvi FV-T919 card which uses BCM4360 chipset. To bring the support back, injection of the kexts from macOS Ventura, [IOSkywalk.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IOSkywalkFamily-v1.0.0.zip), [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip), and AirPortBrcmNIC.kext in order along with [nightly build](https://github.com/dortania/OpenCore-Legacy-Patcher/pull/1077#issuecomment-1646934494) of OCLP patch for Sonoma is necessary for now.
+
+   Notes:
+
+     - SecureBootModel, SIP(0x803), and AMFI(amfi=0x80) need to be disabled in order apply Modern Wireless patch by OCLP.
+     - Disabling AMFI may not be necessary to apply Modern Wireless patch if [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) is injected.
+     - Blocking native IOSkywalk.kext in macOS Sonoma and injecting the IOSkywalk.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) with e1000=0 boot argument to disable AppleEthernetE1000 dext driver.
     
 # Geekbench 5 & Cinebench R23
 
