@@ -49,11 +49,7 @@ For USB port connector types please refer to [Dortania's USB Mapping Guide](http
 Enabled Ports(15): HS03, HS04, HS05, HS06, HS07, HS08, HS09, HS10, HS11, HS12, SS03, SS04, SS05, SS06, SS07 
 Disabled Ports(11): HS01, HS02, HS13, HS14, SS01, SS02, SS08, SS09, SS10, USR1, USR2
 
-
-
-IO Layout Credit ([CaseySJ](https://www.tonymacx86.com/threads/gigabyte-z490-vision-d-thunderbolt-3-i5-10400-amd-rx-580.298642/))
-
 ![Vision D IO Panel V2](https://user-images.githubusercontent.com/97265013/211897543-9e6875f9-10e9-4e0f-83e5-6ef05a98545b.png)
 ![Vision D Main Board V3](https://user-images.githubusercontent.com/97265013/211897549-33223c71-48c7-4d5b-80b5-d98d08c55766.png)
 
-
+IO Layout Credit ([CaseySJ](https://www.tonymacx86.com/threads/gigabyte-z490-vision-d-thunderbolt-3-i5-10400-amd-rx-580.298642/))
