@@ -90,11 +90,9 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - Thunderbolt
 
-- Security Level -> No security
+  - Security Level -> No security
 
-- Thunderbolt USB support -> Enabled
-
-- GPIO3 Force Pwr -> Enabled
+  - GPIO3 Force Pwr -> Enabled
 
 - XHCI Hand-Off -> Enabled
 
