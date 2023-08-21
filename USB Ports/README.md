@@ -4,13 +4,13 @@ This method modifies the OEM table where the USB Ports are declared(SSDT-8.aml f
 
 Before proceeding with this method, you'll first need to have discovered which ports to enable and to disable for [limiting the USB port counts to 15 per controller](https://dortania.github.io/OpenCore-Post-Install/usb/#macos-and-the-15-port-limit). You may use scripts like [USBMap](https://github.com/corpnewt/USBMap) or discover the ports [manually](https://dortania.github.io/OpenCore-Post-Install/usb/manual/manual.html#usb-mapping-the-manual-way). 
 
-Note that different BIOS versions may have different names for the table where the USB ports are defined.
+Note that different BIOS versions may have different names for the table where the USB ports are declared.
 
 # Requirements
 
-- Modify the OEM table that defines USB ports(SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
-- Inject the modifed USB table. (Preferably renamed after the modification to make it more easily identifiable)
-- Drop the OEM table defining USB ports(SSDT-8.aml for F5 BIOS) in ACPI section of the config.plist
+- Modify the OEM table for USB (SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
+- Inject the modifed USB table (Preferably renamed after the modification to make it more easily identifiable)
+- Drop the OEM table for USB (SSDT-8.aml for F5 BIOS) in ACPI section of the config.plist
 - Remove the previously configured USB port mapping method.
   
 ___
@@ -22,11 +22,11 @@ Below example is based on F5 BIOS
 
 Config.plist
 
-- ACPI -> Delete -> Drop the OEM table that defines USB ports (SSDT-8.aml for F5 BIOS)
+- ACPI -> Delete -> Drop the OEM table for USB (SSDT-8.aml for F5 BIOS)
 - ACPI -> Add - > SSDT-USBPorts.aml (Renamed from SSDT-8.aml after the modification)
 
 
-The advantage of using this USB port mapping method.
+The advantage of using ACPI USB port mapping method.
 
    - Kextless
    - Will work on any SMBIOS
