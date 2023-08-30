@@ -75,7 +75,7 @@ Enable USB port: TUPC
 <img width="953" alt="Screenshot 2022-08-25 at 12 45 21 PM" src="https://user-images.githubusercontent.com/97265013/186757334-912eced2-8fd2-45a6-956f-c90a9a476dab.png">
 
 
-_PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first argument (Arg0) of GPLD or TPLD to Zero . You can ignore the second argument (Arg1) as well.
+_PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first variable (Arg0) of GPLD or TPLD to Zero . You can ignore the second variable (Arg1) as well.
 
      Return (GPLD (Zero, 0x03))     -> Port not visible (Zero)
      
