@@ -93,7 +93,7 @@ USB connector types for each port
 
 - HS11 = 0xFF (Define as Internal(0xFF) if Bluetooth is connected. Otherwise, Zero(USB2))
   
-- HS12 = 0xFF (Disable if not used)
+- HS12 = 0xFF 
   
 - HS14= 0xFF  (Onboard Intel CNVI module, disable if not used)
 
