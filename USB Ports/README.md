@@ -84,6 +84,8 @@ For its intended function of each USB port on macOS, limiting the number of USB 
 The _PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first variable (Arg0) of GPLD or TPLD to Zero. You can ignore the second variable (Arg1) as well.
 
      Return (GPLD (Zero, 0x03))     -> Port not visible (Zero)     
+
+  - Do note that modifying variables for GPLD and TPLD may not be necessary at all. You may leave them untouched.
 ___
 USB connector types for each port
 
