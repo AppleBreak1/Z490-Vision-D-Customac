@@ -29,8 +29,12 @@ Config.plist
 The advantage of using ACPI USB port mapping method.
 
    - Kextless
+   - USB ports are defined in ACPI level and unlikely to break in future macOS updates
    - Will work on any SMBIOS
-   - Does not affect other types of operating systems.
+   - Does not affect other types of operating systems
+
+    Note that modifying and dropping the OEM table for USB may need to be redone accordingly 
+    if the changes are made due to BIOS updates.
 
 # Modification
 
@@ -48,7 +52,7 @@ Looking at the above two methods used for _UPC object in OEM table for USB, we c
    - TUPC(Arg0=PCKG[One]) controls USB connector type (By default, TUPC enables(One) USB port and defines connector type as Zero(USB1/USB2)
 
 ___
-For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB ports are necessary. However, written GUPC and TUPC method above both only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). With what's given, we can use both GUPC and TUPC to map the USB ports as shown below.
+For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB port are necessary. However, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without rewriting the method and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
 
    - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), a default for GUPC method. Thus, use GUPC for disabling port)
 
@@ -62,25 +66,25 @@ For its intended function of each USB port on macOS, limiting the number of USB 
       Return (TUPC (0x03)) -> Define USB connector type as 0x03 (Type-A USB2/USB3)
       ~~~
       
-   - Add If (_OSI (" Darwin ")) statement to allow above method to be used in Mac OS only.
+   - Add If (_OSI (" Darwin ")) statement to allow above method to be used in Mac OS only and leave everything else intact for other OSes.
 
 <br>
 
-Disable USB port: GUPC 
+**Example**
+
+- Disable USB port: GUPC 
 
 <img width="1030" alt="Screenshot 2022-08-25 at 12 31 08 PM" src="https://user-images.githubusercontent.com/97265013/186759663-d4de3add-d1fc-4d7f-9b71-31c41cec7ce6.png">
 
-Enable USB port: TUPC
+- Enable USB port: TUPC
 
 <img width="953" alt="Screenshot 2022-08-25 at 12 45 21 PM" src="https://user-images.githubusercontent.com/97265013/186757334-912eced2-8fd2-45a6-956f-c90a9a476dab.png">
 
 
-_PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first variable (Arg0) of GPLD or TPLD to Zero . You can ignore the second variable (Arg1) as well.
+The _PLD (Physical Location Description) object is not very important for USB port mapping. For the USB ports to be enabled, may leave it as is and for the USB ports to be disabled, modify the first variable (Arg0) of GPLD or TPLD to Zero. You can ignore the second variable (Arg1) as well.
 
-     Return (GPLD (Zero, 0x03))     -> Port not visible (Zero)
-     
-
-
+     Return (GPLD (Zero, 0x03))     -> Port not visible (Zero)     
+___
 USB connector types for each port
 
 - HS01/SS01 = 0x09
