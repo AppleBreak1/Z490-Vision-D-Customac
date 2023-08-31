@@ -29,7 +29,7 @@ Config.plist
 The advantage of using ACPI USB port mapping method.
 
    - Kextless
-   - USB ports are defined in ACPI level and unlikely to break in future macOS updates
+   - USB ports are defined at the ACPI level and is unlikely to break because of future macOS updates
    - Will work on any SMBIOS
    - Does not affect other types of operating systems
 
