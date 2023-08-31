@@ -8,10 +8,10 @@ Note that different BIOS versions may have different names for the table where t
 
 # Requirements
 
-- Modify the OEM table for USB (SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit.
+- Modify the OEM table for USB (SSDT-8.aml for F5 BIOS) to satisfy the 15 port limit
 - Inject the modified USB table (Preferably renamed after the modification to make it more easily identifiable)
 - Drop the OEM table for USB (SSDT-8.aml for F5 BIOS) in ACPI section of the config.plist
-- Remove the previously configured USB port mapping method.
+- Remove the previously configured USB port mapping method
   
 ___
 
@@ -33,8 +33,9 @@ The advantage of using ACPI USB port mapping method.
    - Will work on any SMBIOS
    - Does not affect other types of operating systems
 
-    Note that modifying and dropping the OEM table for USB may need to be redone accordingly 
-    if the changes are made due to BIOS updates.
+         Note that if the changes are made to the OEM table due to BIOS updates, steps to
+         modify and drop the OEM table for USB may need to be redone accordingly. 
+
 
 # Modification
 
