@@ -86,7 +86,7 @@ The _PLD (Physical Location Description) object is not very important for USB po
 
      Return (GPLD (Zero, 0x03))     -> Port not visible (Zero)     
 
-  - Do note that modifying variables for GPLD and TPLD may not be necessary at all. You may leave them untouched.
+  - Do note that modifying _PLD and variables for GPLD and TPLD may not be necessary at all. May as well leave them untouched.
 ___
 USB connector types for each port
 
