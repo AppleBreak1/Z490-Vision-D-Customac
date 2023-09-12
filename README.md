@@ -135,7 +135,7 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - SSDT-PLUG.aml (Injects plugin type 1; No longer required beginning with Monterey 12.3) 
 
-- SSDT-EC-USBX.aml (Injects fake Embedded Controller device - High Power Charging for iPhone, iPad, etc)
+- SSDT-EC-USBX.aml (Injects fake Embedded Controller; USBX, USB power properties allow high power charging for iPhone, iPad, etc)
 
 - SSDT-DMAR.aml (Modifed to remove Reserved Memory Regions from OEM DMAR Table. This is required to fix issues with WiFi/ethernet when enabling AppleVTD. Don't forget to drop OEM DMAR table in ACPI section of the OpenCore config.plist first)
 
