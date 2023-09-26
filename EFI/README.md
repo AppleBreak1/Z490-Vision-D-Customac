@@ -6,4 +6,4 @@ OC 0.9.5 - SSDT adjustments
 
 &ensp;&ensp;&emsp;&emsp;&emsp;&nbsp;- Name change from SSDT-MCHCSBUS-DTPG.aml ->  SSDT-SBUS-MCHC.aml (DTGP removed and added to SSDT-TH3HP.aml)
 
-&ensp;&ensp;&emsp;&emsp;&emsp;&nbsp;- Added HPTE=0 in SSDT-AWAC.aml to disable HPET.
+&ensp;&ensp;&emsp;&emsp;&emsp;&nbsp;- Added HPTE=0 in SSDT-AWAC.aml to disable HPET
