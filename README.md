@@ -139,15 +139,15 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
 
 - SSDT-DMAR.aml (Modifed to remove Reserved Memory Regions from OEM DMAR Table. This is required to fix issues with WiFi/ethernet when enabling AppleVTD. Don't forget to drop OEM DMAR table in ACPI section of the OpenCore config.plist first)
 
-- SSDT-MCHCSBUS-DTGP.aml (Injects MCHC, SBUS, and DTGP method)
+- SSDT-SBUS-MCHC.aml (Injects SBUS.BUS0.BLC0 and MCHC)
 
 - SSDT-TB3HP.aml (SSDT for Thunderbolt hotplug)
 
-- SSDT-AWAC.aml (Disables AWAC clock and enables RTC to fix system clock)
+- SSDT-AWAC.aml (Disables AWAC clock and HPET; enables RTC to fix system clock)
 
 - SSDT-COSMETIC.aml (Optional; injects fake or missing devices and rename devices)
 
-    - Injected Devices: PNLF, THRM, SRAM, XSPI 
+    - Injects: PNLF, THRM, SRAM, XSPI 
     - RP02.PXSX to GIGE  -> Intel I225 Ethernet
     - RP03.PXSX to ARPT  -> FV-T919 in PCIEx1 slot
     - RP09.PXSX to SSD1  -> 2nd M.2 slot (M2A_CPU) * Disables SATA 1 port when occupied by  M.2 PCIe SSD
