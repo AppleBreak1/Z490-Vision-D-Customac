@@ -311,7 +311,7 @@ macOS Sonoma
 
      - SecureBootModel, SIP(0x803), and AMFI(amfi=0x80) need to be disabled in order to apply Modern Wireless patch by OCLP.
      - Disabling AMFI may not be necessary to apply Modern Wireless patch if [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) v1.3.1 is injected with -amfipassbeta (Will need to use this flag until the kext is updated for Sonoma)
-     - Blocking native IOSkywalk.kext in macOS Sonoma and injecting the IOSkywalk.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) with e1000=0 boot argument which disables AppleEthernetE1000 dext driver.
+     - Blocking native IOSkywalk.kext in macOS Sonoma and injecting the IOSkywalk.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) or AppleIntelEthernet210.kext with e1000=0 boot argument which disables AppleEthernetE1000 dext driver.
     
 # Geekbench 5 & Cinebench R23
 
