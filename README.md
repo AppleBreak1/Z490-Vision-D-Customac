@@ -305,13 +305,13 @@ macOS Ventura
 
 macOS Sonoma
 
-- As [noted](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1076) by the OCLP developers, Apple removed support for IO80211FamilyLegacy stack which is responsible for supporting wireless cards used in Macs whose support have been ended in the previous macOS versions including Sonoma. This also impacts Fenvi FV-T919 card which uses BCM4360 chipset. To bring the support back, injection of the kexts from macOS Ventura, [IOSkywalk.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IOSkywalkFamily-v1.0.0.zip), [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip), and AirPortBrcmNIC.kext in order along with [nightly build](https://github.com/dortania/OpenCore-Legacy-Patcher/pull/1077#issuecomment-1646934494) of OCLP patch for Sonoma is necessary for now.
+- As [noted](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1076) by the OCLP developers, Apple removed support for IO80211FamilyLegacy stack which is responsible for supporting wireless cards used in Macs whose support have been ended in the previous macOS versions including Sonoma. This also impacts Fenvi FV-T919 card which uses BCM4360 chipset. To bring the support back, injection of the kexts from macOS Ventura, [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IOSkywalkFamily-v1.0.0.zip), [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/e21efa975c0cf228cb36e81a974bc6b4c27c7807/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip), and AirPortBrcmNIC.kext in order along with [OCLP](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main)'s Modern Wireless patch is necessary.
 
    Notes:
 
      - SecureBootModel, SIP(0x803), and AMFI(amfi=0x80) need to be disabled in order to apply Modern Wireless patch by OCLP.
      - Disabling AMFI may not be necessary to apply Modern Wireless patch if [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) v1.3.1 is injected with -amfipassbeta (Will need to use this flag until the kext is updated for Sonoma)
-     - Blocking native IOSkywalk.kext in macOS Sonoma and injecting the IOSkywalk.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) or AppleIntelEthernet210.kext with e1000=0 boot argument which disables AppleEthernetE1000 dext driver.
+     - Blocking native IOSkywalkFamily.kext in macOS Sonoma and injecting the IOSkywalkFamily.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) or AppleIntelEthernet210.kext with e1000=0 boot argument which disables AppleEthernetE1000 dext driver.
     
 # Geekbench 5 & Cinebench R23
 
@@ -326,8 +326,10 @@ macOS Sonoma
 
 - [Apple Inc](https://www.apple.com/) for MacOS.
 - [Acidanthera Team](https://github.com/acidanthera) for OpenCore Bootloader, its documentation, and KEXTS.
+- [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher) for Modern Wireless patch in macOS Sonoma
 - [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) for thorough explanation.
 - [CaseySJ's Golden Build Guide](https://www.tonymacx86.com/threads/gigabyte-z490-vision-d-thunderbolt-3-i5-10400-amd-rx-580.298642/) for IO layout findings and Thunderbolt 3 hotplug fix SSDT.
+  
 
 
 Big thanks to Hackintosh community and those who contributed to make hackintosh possible from the beginning to the end!
