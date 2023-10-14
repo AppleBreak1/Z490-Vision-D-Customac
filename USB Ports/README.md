@@ -118,7 +118,19 @@ Disabled Ports(11): HS01, HS02, HS13, HS14, SS01, SS02, SS08, SS09, SS10, USR1, 
 
 IO Layout Credit ([CaseySJ](https://www.tonymacx86.com/threads/gigabyte-z490-vision-d-thunderbolt-3-i5-10400-amd-rx-580.298642/))
 
+# Activating more than 15 USB ports
+
+Activating more than 15 USB ports require XhciPortLimit quirk to be enabled.  Normally when XhciPortLimit quirk is used with OEM USB table, all the USB ports returning (GUPC (One)) will be activated with connector type 0xFF as this is the default for GUPC method. However, with the modified USB table, we can manually activate only the needed USB ports beyond 15 USB ports using TUPC method and correctly define USB connector type.
+
+Notes:
+
+- OpenCore 0.9.3+ is required for XhciPortLimit quirk to be fully functional in Big Sur 11.3+
+- While using modified USB table addresses most of the concerns listed [here]( https://dortania.github.io/OpenCore-Post-Install/usb/), the potential data corruption issue from using XhciPortlimit still remains which I have not yet experienced.
+
 # Resources
 
 https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-acpi-to-configure-usb-ports-on-a-computer
+
 https://www.macos86.it/topic/9-mappatura-porte-usb/
+
+https://dortania.github.io/OpenCore-Post-Install/usb/
