@@ -120,7 +120,7 @@ IO Layout Credit ([CaseySJ](https://www.tonymacx86.com/threads/gigabyte-z490-vis
 
 # Activating more than 15 USB ports
 
-Activating more than 15 USB ports require XhciPortLimit quirk to be enabled.  Normally when XhciPortLimit quirk is used with OEM USB table, all the USB ports returning (GUPC (One)) will be activated with connector type 0xFF as this is the default for GUPC method. However, with the modified USB table, we can manually activate only the needed USB ports beyond 15 USB ports using TUPC method and correctly define USB connector type.
+Activating more than 15 USB ports require XhciPortLimit quirk to be enabled.  Normally when XhciPortLimit quirk is used with OEM USB table, all the USB ports returning (GUPC (One)) will be activated with connector type 0xFF as this is the default for GUPC method. However, with the modified USB table, we can manually activate only the needed USB ports beyond 15 USB ports using TUPC method and correctly define USB connector type. The USB ports to be disabled will need to return (GUPC (Zero))
 
 Notes:
 
