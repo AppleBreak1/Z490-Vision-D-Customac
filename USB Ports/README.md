@@ -53,9 +53,11 @@ Looking at the above two methods used for _UPC object in OEM table for USB, we c
    - TUPC(Arg0=PCKG[One]) controls USB connector type (By default, TUPC enables(One) USB port and defines connector type as Zero(USB1/USB2)
 
 ___
-For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB port are necessary. However, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without rewriting the method and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
+For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB port are necessary. 
 
-   - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), a default for GUPC method. Thus, use GUPC for disabling port)
+As we can see, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without rewriting the method and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
+
+   - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), a default for GUPC method. Thus, use GUPC for the purpose of disabling disabling port)
 
       ~~~
       Return (GUPC (Zero)) -> Disable USB port
