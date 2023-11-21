@@ -52,6 +52,11 @@ When you opt to use the desktop framebuffer it will just work. However, with the
   
       - SATA AHCI Controller device path -> name |String| pci8086,a182
       - NVME SSD Controller device path -> subsystem-id -> |Data| 04A80000 or 06A80000
+
+        Note: If spoofing subsystem-id is not enough, you may need to spoof vendor-id and device-id
+
+                 Vendor ID: 0x144d <D4140000>
+                 Device ID: 0xA804 <04A80000> or 0xA806 <06A80000>
       
         <img width="1821" alt="Screenshot 2023-02-22 at 7 40 52 PM" src="https://user-images.githubusercontent.com/97265013/220816615-621f5de6-28a7-4b74-83fe-0b642c83ff74.png">
 
