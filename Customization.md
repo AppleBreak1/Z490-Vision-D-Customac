@@ -3,7 +3,7 @@
 * [**Enable GPU Tab in Activity Monitor**](#Enable-GPU-Tab-in-Activity-Monitor)
 * [**Show Both iGPU and dGPU in GPU Tab and GPU History Window**](#Show-Both-iGPU-and-dGPU-in-GPU-tab-and-GPU-History-Window)
 * [**Fix iGPU Shown as "Intel KBL Unknown" in GPU History Window**](#Fix-iGPU-Shown-as-Intel-KBL-Unknown-in-GPU-History-Window)
-* [**iGPU Utilization in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
+* [**iGPU Utilization Tracking in GPU Tab and GPU History Window**](#iGPU-Utilization-in-GPU-Tab-and-GPU-History-Window)
 * [**System Profiler**](#System-Profiler)
   - SATA and NVMe SSD Controller shown as Generic Controller
   - Intel I219 Ethernet Model name change
@@ -31,16 +31,16 @@ Credit: [notjosh](https://github.com/notjosh) for the command.
 
 There are two ways
 
-- Use desktop type framebuffer such as 0x3E9B0007  (Expect longer boot times and if dGPU is the primary display controller, system might become unstable with more than one display connected)
+- Use desktop type framebuffer with connectors such as 0x3E9B0007  (Expect longer boot times and if dGPU is the primary display controller, system might become unstable with more than one display connected)
 - Use empty framebuffer such as 0x9BC50003 with either enable-metal property or igfxmetal=1 boot flag.  
 
 # Fix iGPU Shown as Intel KBL Unknown in GPU History Window
 
 - Inject device-id 0x3E9B
 
-# iGPU Utilization in GPU Tab and GPU History Window
+# iGPU Utilization Tracking in GPU Tab and GPU History Window
 
-When you opt to use the desktop framebuffer it will just work. However, with the empty framebuffer + "enable-metal" property, system has to go through the sleep/wake cycle once, in order to see the actual iGPU usage in Activity Monitor.
+When you opt to use the desktop framebuffer with connectors, iGPU utilization tracking will work. However, with the empty framebuffer + "enable-metal" property, system has to go through the sleep/wake cycle once, in order to see the graphical representation of iGPU usage in Activity Monitor.
 
 <img width="1321" alt="qqq" src="https://user-images.githubusercontent.com/97265013/215239222-c2882fd5-3ecb-40cc-a994-8958a4bf4398.png">
 
