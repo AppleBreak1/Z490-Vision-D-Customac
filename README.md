@@ -14,6 +14,7 @@ BIOS revision: F5
 
 Wifi/BT Card: Fenvi FV-T919
 
+SSD: WD_Black SN850X 1TB (macOS Ventura)
 
 # Working
 
@@ -38,7 +39,8 @@ Wifi/BT Card: Fenvi FV-T919
 
      </details>  
 
-     
+- Boot time from Apple logo to desktop: roughly 12 secs
+  
 - Working Mac OS: Sierra ~ macOS Sonoma
 
 Note 1: Config.plist changes for Sierra(10.12.6) ~ Catalina
