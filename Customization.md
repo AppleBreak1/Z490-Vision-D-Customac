@@ -40,7 +40,7 @@ There are two ways
 
 # iGPU Utilization Tracking in GPU Tab and GPU History Window
 
-When you opt to use the desktop framebuffer with connectors, iGPU utilization tracking will work. However, with the empty framebuffer + "enable-metal" property, system has to go through the sleep/wake cycle once, in order to see the graphical representation of iGPU usage in Activity Monitor.
+When you opt to use the desktop framebuffer with connectors, iGPU utilization tracking will work. However, with the empty framebuffer + "enable-metal" property, loading Apple's GuC firmware by injecting igfxfw is necessary and the system has to go through the sleep/wake cycle once in order to see the graphical representation of iGPU usage in Activity Monitor.
 
 <img width="1321" alt="qqq" src="https://user-images.githubusercontent.com/97265013/215239222-c2882fd5-3ecb-40cc-a994-8958a4bf4398.png">
 
