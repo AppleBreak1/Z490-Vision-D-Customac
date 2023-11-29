@@ -152,8 +152,8 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
     - Injects: PNLF, THRM, SRAM, XSPI 
     - RP02.PXSX to GIGE  -> Intel I225 Ethernet
     - RP03.PXSX to ARPT  -> FV-T919 in PCIEx1 slot
-    - RP09.PXSX to SSD1  -> 2nd M.2 slot (M2A_CPU) * Disables SATA 1 port when occupied by  M.2 PCIe SSD
-    - RP17.PXSX to SSD0  -> 1st M.2 slot (M2M_SB) * Disables SATA 4 and 5 ports when occupied by M.2 PCIe SSD
+    - RP09.PXSX to SSD0  -> 1st M.2 slot (M2A_CPU) * Disables SATA 1 port when occupied by  M.2 PCIe SSD
+    - RP17.PXSX to SSD1  -> 2nd M.2 slot (M2M_SB) * Disables SATA 4 and 5 ports when occupied by M.2 PCIe SSD
     - RP21.PXSX to SSD2  -> 3rd M.2 Slot (M2P_SB) * Shares bandwidth with PCIEX4 
 
 
