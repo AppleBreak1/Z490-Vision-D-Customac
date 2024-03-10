@@ -10,12 +10,14 @@
   - Configuration for using built-in Intel AX201 Wi-Fi and Bluetooth.
 
 
-#  Note 
+#  Important Notes 
 
-- EFI builds here are configured for Sonoma 14.4
+- The AirportItlwm.kext in these builds are only compatible with Sonoma 14.4 and will not work with Sonoma 14.3.1 and older.
+  
+- The EFI builds here are configured for Sonoma 14.4
   
 - To significantly reduce the size of each respective kexts for Intel Wi-Fi and Bluetooth, the AirportItlwm and IntelBluetoothFirmware are compiled only with “iwlwifi-QuZ-a0-hr-b0-68” and “ibt-19-0-4” firmware which should work with AX201NGW module that comes with this motherboard.
 
 - Install/Update for Sonoma 14.4 may require setting SecureBootModel to Disabled(Needs to be done before the OS installation process) to avoid bootloop. SecureBootModel can be enabled afterwards.
 
-  **Please note that the AirportItlwm.kext here is only compatible with Sonoma 14.4 and it will not work with Sonoma 14.3.1 and older. 
+  
