@@ -12,9 +12,9 @@
 
 #  Important Notes 
 
-- The AirportItlwm.kext in these builds are only compatible with Sonoma 14.4 and are not configured to work with Sonoma 14.3.1 and older.
+- The AirportItlwm.kext 2.3.0-Alpha in these builds are only compatible with Sonoma 14.4 and are not configured to work with Sonoma 14.3.1 and older.
   
-- The EFI builds here are configured for Sonoma 14.4
+- These EFI builds are configured for Sonoma 14.4
   
 - To significantly reduce the size of each respective kexts for Intel Wi-Fi and Bluetooth, the AirportItlwm and IntelBluetoothFirmware are compiled only with “iwlwifi-QuZ-a0-hr-b0-68” and “ibt-19-0-4” firmware which should work with AX201NGW module that comes with this motherboard.
 
