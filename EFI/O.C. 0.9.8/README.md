@@ -12,7 +12,7 @@
 
 #  Important Notes 
 
-- The AirportItlwm.kext in these builds are only compatible with Sonoma 14.4 and will not work with Sonoma 14.3.1 and older.
+- The AirportItlwm.kext in these builds are only compatible with Sonoma 14.4 and are not configured to work with Sonoma 14.3.1 and older.
   
 - The EFI builds here are configured for Sonoma 14.4
   
