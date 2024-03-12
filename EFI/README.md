@@ -21,3 +21,7 @@ OC 0.9.5
 OC 0.9.8 
 
 - Configured specifically for Sonoma 14.4. Includes combination of Fenvi Broadcom (Wi-Fi/BT), Intel (WiFi/BT), and (Intel WiFi + Fenvi Broadcom Bluetooth).  
+
+OC 0.9.9
+
+- No changes in user configuration from OC 0.9.8 setup.
