@@ -55,15 +55,15 @@ Looking at the above two methods used for _UPC object in OEM table for USB, we c
 ___
 For its intended function of each USB port on macOS, limiting the number of USB ports to 15 per USB controller and correctly defining the USB connector type for each enabled USB port are necessary. 
 
-As we can see, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). Without rewriting the method and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
+As we can see, both of the written GUPC and TUPC method above only take one argument(GUPC=Enable/Disable USB port; TUPC=USB connector type). The methods can be altered to take two arguments; however, without rewriting the methods and with what's given, we can use both GUPC and TUPC to map the USB ports as below.
 
-   - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), a default for GUPC method. Thus, use GUPC for the purpose of disabling USB port)
+   - Use GUPC to disable USB port (If GUPC is used to enable USB port, we cannot control the connector type being defined for USB port individually. Instead, connector type of the enabled USB port will always be defined as 0xFF(Internal), as this is the default for the given GUPC method. Thus, use GUPC for the purpose of disabling USB port)
 
       ~~~
       Return (GUPC (Zero)) -> Disable USB port
       ~~~
                  
-   - Use TUPC to enable USB port and define USB connector type (By default, TUPC enables USB port and we can selectively and individually define USB connector type for each of its enabled USB port. However, it cannot be used to disable USB port)
+   - Use TUPC to enable USB port and define USB connector type (By default, TUPC enables USB port and we can selectively and individually define USB connector type for each of its enabled USB port. However, it cannot be used to disable USB port with the given TUPC method)
 
       ~~~
       Return (TUPC (0x03)) -> Define USB connector type as 0x03 (Type-A USB2/USB3)
