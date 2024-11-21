@@ -7,6 +7,7 @@
 * [**System Profiler**](#System-Profiler)
   - SATA and NVMe SSD Controller shown as Generic Controller
   - Intel I219 Ethernet Model name change
+* [Spoofing AMD GPU Names Shown in Apps Like FCPX or Activity Monitor](#Spoofing-AMD-GPU-Names-Shown-in-Apps-Like-FCPX-or-Activity-Monitor)
 ___
 
 # Enable GPU Tab in Activity Monitor
@@ -70,4 +71,12 @@ ___
      
     - Alternatively, you might as well build the kext from its source after changing the model name.
       
-      
+# Spoofing AMD GPU Names Shown in Apps Like FCPX or Activity Monitor
+
+  Under Device Path of dGPU
+  - Inject ATY,DeviceName 
+  - Inject ATY,FamilyName
+
+    <img width="688" alt="Screenshot 2024-11-20 at 6 18 05 PM" src="https://github.com/user-attachments/assets/8048bfa4-4f1e-4fb5-b527-15f768679871">
+
+    
