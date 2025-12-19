@@ -2,24 +2,25 @@
 
 - Updated OpenCore to 1.0.6
 
-- Updated kexts to support Tahoe.
+- Updated kexts to support Tahoe
 
 - Implemented ACPI USB Port mapping that does not require dropping Original USB Table
 
-  Mapped: HS03,4,5,6,7,8,9,10,11,13 SS03,04,05,06,07
+  - Mapped: HS03,4,5,6,7,8,9,10,11,13 SS03,04,05,06,07
 
-- This EFI does not enable Wi-Fi settings. Will update this in the future once the OCLP 3.0 with Broadcom Wi-Fi patch is released by OCLP team. 
+- This EFI does not enable Wi-Fi settings. Will update this in the future once the OCLP 3.0 with Broadcom Wi-Fi patch is released by OCLP team
 
-  Currently, Intel Wi-Fi works with Itlwm.kext + Heliport on Tahoe. However, AppleVTD needs to be disabled.
+  - Currently, Intel Wi-Fi works with Itlwm.kext + Heliport on Tahoe. However, AppleVTD needs to be disabled.
 
-- Intel I219/I225 are functional as of Tahoe 26.2 while having AppleVTD enabled. 
+- Intel I219/I225 are functional as of Tahoe 26.2
 
-  - [IntelMausiEthernet.kext](https://github.com/Mieze/IntelMausiEthernet) for I219
-  - [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) Ver1.5 for I225
+  - [IntelMausiEthernet.kext](https://github.com/Mieze/IntelMausiEthernet) for I219 (Works with or without AppleVTD)
+  - Native AppleEthernetE1000 for I225 (Requires AppleVTD to be enabled)
+  - [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) for I225 (Requires AppleVTD to be disabled on macOS Tahoe)
 
 - For systems with AMD dGPUs, current version of WhateverGreen causes hang during macOS Tahoe upgrade/installation. In order to bypass this, one needs to disable WhateverGreen during the Tahoe installation and enable it back once the installation is complete. Or, use laobamac_yyds' forked version of [WhateverGreen](https://www.insanelymac.com/forum/topic/361713-pre-release-macos-tahoe-261/page/9/#findComment-2843040) until fix is implemented by Acidenthera team.
 
-- AppleHDA.kext has been removed from macOS Tahoe. To get audio back, there are couple of options.
+- AppleHDA.kext has been removed from macOS Tahoe. To get audio back, there are couple of options
 
    - Bring back AppleHDA.kext via root patching
    - Use VoodooHDA.kext
