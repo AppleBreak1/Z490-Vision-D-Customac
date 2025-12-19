@@ -58,7 +58,7 @@ This method does not require dropping original USB Table.
    USR2  0x10
    ~~~
    
-3. Update Config.plist accordingly.
+3. Update Config.plist accordingly
 
 
 
