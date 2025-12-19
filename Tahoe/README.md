@@ -28,12 +28,13 @@
 
 This method does not require dropping original USB Table.
 
-1. Discovering Ports
+1. Discover USB Ports
 
-   - Boot with SSDT-RHUB.aml created by [SSDTTime](https://github.com/corpnewt/SSDTTime) and XhciPortLimit quirk enabled. This will enable every USB ports in the system.
+   - Boot with SSDT-RHUB.aml created by [SSDTTime](https://github.com/corpnewt/SSDTTime) and XhciPortLimit quirk enabled. This will enable every USB ports in the system on macOS.
    - Use IORegistryExplorer to discover all the needed USB Ports plugging USB2 and USB3 devices to each USB ports while making note of the address for each USB ports to be mapped.
+   - Once the discovering part is finished, disable SSDT-RHUB.aml and XhciPortLmit quirk and move onto the next step.
 
-2. Creating ACPI USB Table.
+2. Create ACPI USB Table.
 
    <img width="1043" height="826" alt="USB Map" src="https://github.com/user-attachments/assets/dac91d1f-5fa5-4411-bcb3-069dcc102cdd" />
 
@@ -56,7 +57,8 @@ This method does not require dropping original USB Table.
    USR1  0x0F
    USR2  0x10
    ~~~
-
+   
+3. Update Config.plist accordingly.
 
 
 
