@@ -18,7 +18,7 @@
   - Native AppleEthernetE1000 for I225 (Requires AppleVTD to be enabled)
   - [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) for I225 (Requires AppleVTD to be disabled on macOS Tahoe)
 
-- For systems with AMD dGPUs, current version of WhateverGreen causes hang during macOS Tahoe upgrade/installation. In order to bypass this, one needs to disable WhateverGreen during the Tahoe installation and enable it back once the installation is complete. Or, use laobamac_yyds' forked version of [WhateverGreen](https://www.insanelymac.com/forum/topic/361713-pre-release-macos-tahoe-261/page/9/#findComment-2843040) until fix is implemented by Acidenthera team.
+- ~~For systems with AMD dGPUs, current version of WhateverGreen causes hang during macOS Tahoe upgrade/installation. In order to bypass this, one needs to disable WhateverGreen during the Tahoe installation and enable it back once the installation is complete. Or, use laobamac_yyds' forked version of [WhateverGreen](https://www.insanelymac.com/forum/topic/361713-pre-release-macos-tahoe-261/page/9/#findComment-2843040) until fix is implemented by Acidenthera team~~ This issue is fixed with Lilu 1.7.2.
 
 - AppleHDA.kext has been removed from macOS Tahoe. To get audio back, there are couple of options
 
