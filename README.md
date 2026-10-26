@@ -322,7 +322,7 @@ macOS Sonoma
 
 macOS Tahoe
 
-- Thanks to [Laobamac](https://github.com/laobamac), onboard audio and Broadcom/Intel Wi-Fi do not require system root patches. This means no more broken volume seal, fully enabled SIP and functional Wi-Fi in macOS Tahoe Recovery. Please Refer [here](https://github.com/AppleBreak1/Z490-Vision-D-Customac/tree/main/EFI/O.C.%201.0.9) for configuration.
+- Thanks to [Laobamac](https://github.com/laobamac), onboard audio and Broadcom/Intel Wi-Fi do not require system root patches. This means no more broken volume seal, fully enabled SIP and functional Wi-Fi in macOS Tahoe Recovery. Please Refer [here](https://github.com/AppleBreak1/Z490-Vision-D-Customac/tree/main/EFI/O.C.%201.0.8) for configuration.
   
 # Geekbench 5 & Cinebench R23
 
