@@ -25,3 +25,7 @@ OC 0.9.8
 OC 0.9.9
 
 - No changes in user configuration from OC 0.9.8 setup.
+
+OC 1.0.8 
+
+- Updated for macOS Tahoe (No more system root patches necessary for onboard audio and Wi-Fi)
