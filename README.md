@@ -8,13 +8,15 @@ CPU : Intel i9-10900K
 
 GPU: Gigabyte RX 580 Gaming 8GB
 
+GPU: Sapphire RX 6600XT Nitro+ 8GB 
+
 Motherboard: Z490 Vision D
 
 BIOS revision: F5
 
 Wifi/BT Card: Fenvi FV-T919
 
-SSD: WD_Black SN850X 1TB (macOS Ventura)
+SSD: WD_Black SN850X 1TB
 
 # Working
 
@@ -204,12 +206,14 @@ Note 2: For Sierra(10.12.6) and High Sierra(10.13.6)
    Note: One may wish to continue using USBWakeFixup.kext in macOS Monterey+. If so, you may set memory clock speed below 2933 MHz or use [Bluesnooze](https://github.com/odlp/bluesnooze) without configuring memory clock speed below 2933 MHz.
 
 - [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) (Alternative ethernet kext for Intel I225 and I226; tested to work in macOS Sierra+)
-
-   Note: Injecting this kext requires disabling native AppleEthernetE1000 dext driver with the following boot-args.
+ 
+   Note1: Injecting this kext requires disabling native AppleEthernetE1000 dext driver with the following boot-args.
     
     - Big Sur ~ Monterey 12.2.1: dk.e1000=0
     - Monterey 12.3 or newer: e1000=0 
-
+   
+   Note2: ApplieIGC does not work on macOS Tahoe When AppleVTD is enable.
+   
      Support for Intel I225 Ethernet was first introduced in macOS Catalina. However, with this kext, we can use I225 Ethernet even in older macOS like Sierra. Also, if the I225 Ethernet is the only reason for enabling AppleVTD which have been problematic, using AppleIGC.kext that does not require AppleVTD will give less headaches down the road 
    
 # Drivers
@@ -315,7 +319,11 @@ macOS Sonoma
      - Disabling AMFI may not be necessary to apply Modern Wireless patch if [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Acidanthera) v1.3.1 is injected with -amfipassbeta (Will need to use this flag until the kext is updated for Sonoma)
      - Blocking native IOSkywalkFamily.kext in macOS Sonoma and injecting the IOSkywalkFamily.kext from macOS Ventura may break the I225 ethernet using AppleEthernetE1000 dext driver. For workaround, one may use [AppleIGC.kext](https://github.com/SongXiaoXi/AppleIGC) or AppleIntelEthernet210.kext with e1000=0 boot argument which disables AppleEthernetE1000 dext driver.
 - SecureBootModel may need to be set to "Disabled" before installing or updating to Sonoma 14.4, otherwise you may experience bootloop after the first stage of installation/update process. SecureBootModel can be enabled afterwards.
-      
+
+macOS Tahoe
+
+- Thanks to [Laobamac](https://github.com/laobamac), onboard audio and Broadcom/Intel Wi-Fi do not require system root patches. This means no more broken volume seal, fully enabled SIP and functional Wi-Fi in macOS Tahoe Recovery. Please Refer [here](https://github.com/AppleBreak1/Z490-Vision-D-Customac/tree/main/EFI/O.C.%201.0.9) for configuration.
+  
 # Geekbench 5 & Cinebench R23
 
 <img width="1656" alt="Screenshot 2023-01-11 at 10 35 15 AM" src="https://user-images.githubusercontent.com/97265013/211889865-666ff78a-5bee-433c-9591-4532980a74a3.png">
