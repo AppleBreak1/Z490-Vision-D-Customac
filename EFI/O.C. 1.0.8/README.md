@@ -8,7 +8,7 @@
 
 #  Important Notes 
   
-- Broadcom Wi-Fi does not require system root patches for functional Wi-Fi with AppleVTD enabled on macOS Tahoe, thanks to [Laobamac](https://github.com/laobamac) for [SimpleBCM](https://github.com/laobamac/SimpleBCM) kext and [OCLP](https://github.com/dortania/Opencore-Legacy-Patcher) devs for [AirPortBrcmNIC-Tahoe.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi) for AppleVTD patch.
+- Broadcom Wi-Fi does not require system root patches for functional Wi-Fi with AppleVTD enabled, thanks to [Laobamac](https://github.com/laobamac) for [SimpleBCM](https://github.com/laobamac/SimpleBCM) kext and [OCLP](https://github.com/dortania/Opencore-Legacy-Patcher) devs for [AirPortBrcmNIC-Tahoe.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi) for AppleVTD patch.
    
     - Please note that Laobamac merged all the required kext into SimpleBCM and added support for Sonoma, Sequoia and Tahoe. Also, downgrading IOSkywalkFamily.kext is no longer necessary with SimpleBCM V1.2. This means, Intel I225 ethernet will work with native driver with AppleVTD enabled.
 
