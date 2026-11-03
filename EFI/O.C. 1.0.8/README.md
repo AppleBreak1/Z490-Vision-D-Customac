@@ -7,14 +7,14 @@
 
 
 #  Important Notes 
-
-- Note that these EFIs are specifically configured for macOS Tahoe for Wifi and Bluetooth functionality.
   
 - Broadcom Wi-Fi does not require system root patches for functional Wi-Fi with AppleVTD enabled on macOS Tahoe, thanks to [Laobamac](https://github.com/laobamac) for [SimpleBCM](https://github.com/laobamac/SimpleBCM) kext and [OCLP](https://github.com/dortania/Opencore-Legacy-Patcher) devs for [AirPortBrcmNIC-Tahoe.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi) for AppleVTD patch.
    
-    - IOSkywalkFamily.kext still needs to be downgraded for Broadcom Wi-Fi, and because of this, Intel I225 ethernet that relies on IOSkywalkFamily will not work with DEXT driver. Also, AppleIGC will not work on macOS Tahoe with AppleVTD enabled. You'll need the AppleIntelI210Ethernet.kext from macOS Monterey for this which is not included in the EFI.
+    - Please note that Laobamac merged all the required kext into SimpleBCM and added support for Sonoma, Sequoia and Tahoe. Also, downgrading IOSkywalkFamily.kext is no longer necessary with SimpleBCM V1.2. This means, Intel I225 ethernet will work with native driver with AppleVTD enabled.
 
 - Intel Wi-Fi does not require system root patches for functional Wi-Fi with AppleVTD enabled on macOS Tahoe, thanks to [Laobamac](https://github.com/laobamac) for [AirportItlwm](https://github.com/laobamac/itlwm) kext.
+
+- The EFI-Intel-WiFi+BT is specifically configured for macOS Tahoe for Wifi and Bluetooth functionality.
 
 - Since the kexts are injected via bootloader, Wi-Fi continues to function in macOS Tahoe Recovery environment.
   
