@@ -18,7 +18,7 @@
 
 - Since the kexts are injected via bootloader, Wi-Fi continues to function in macOS Tahoe Recovery environment.
   
-- To significantly reduce the size of the kext for Intel Wi-Fi, the AirportItlwm is compiled only with “iwlwifi-QuZ-a0-hr-b0-68” firmware which work with AX201NGW module that is shipped with this motherboard.
+- To significantly reduce the size of the kext for Intel Wi-Fi, the AirportItlwm is compiled only with “iwlwifi-QuZ-a0-hr-b0-68” firmware which works with AX201NGW module that is shipped with this motherboard.
 
 - System root patch for onboard audio on macOS Tahoe is not required thanks to [Laobamac](https://github.com/laobamac) for [SimpleHDA](https://github.com/laobamac/SimpleHDA) kext.
 
